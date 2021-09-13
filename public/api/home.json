@@ -1,0 +1,57 @@
+{
+  "success": true,
+  "data": {
+    "topicList": [
+      {
+        "id": 1,
+        "title": "社会热点",
+        "imgUrl": "//upload.jianshu.io/collections/images/261938/man-hands-reading-boy-large.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+      },
+      {
+        "id": 2,
+        "title": "手手绘",
+        "imgUrl": "//upload.jianshu.io/collections/images/21/20120316041115481.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/64/h/64"
+      }
+    ],
+    "articleList": [
+      {
+        "id": 1,
+        "title": "今天太阳好大",
+        "desc": "天气很不错",
+        "imgUrl": "https://ljcimg.oss-cn-beijing.aliyuncs.com/img/banner.jpg"
+      },
+      {
+        "id": 2,
+        "title": "车没电了",
+        "desc": "走路好累",
+        "imgUrl": "https://ljcimg.oss-cn-beijing.aliyuncs.com/img/banner.jpg"
+      },
+      {
+        "id": 3,
+        "title": "明天星期二",
+        "desc": "又要早起",
+        "imgUrl": "https://ljcimg.oss-cn-beijing.aliyuncs.com/img/banner.jpg"
+      },
+      {
+        "id": 4,
+        "title": "待会要开会",
+        "desc": "很无聊",
+        "imgUrl": "https://ljcimg.oss-cn-beijing.aliyuncs.com/img/banner.jpg"
+      }
+    ],
+    "recommendList": [
+      {
+        "id": 1,
+        "imgUrl": "http://cdn3.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png"
+      },
+      {
+        "id": 2,
+        "imgUrl": "http://cdn3.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png"
+      },
+      {
+        "id": 3,
+        "imgUrl": "https://cdn3.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png"
+      }
+    ]
+  }
+}
