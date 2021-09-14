@@ -17,12 +17,10 @@ class Topic extends PureComponent {
         );
     }
 }
-const mapStateToProps = state => ({
-    topicList: state.get('home').get('topicList')
-})
-const mapDispatchToProps = dispatch => {
-    return {
 
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Topic);
+export default connect(
+    state => ({
+        topicList: state.getIn(['home', 'topicList'])
+    }),
+    null
+)(Topic);

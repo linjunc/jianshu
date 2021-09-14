@@ -48,4 +48,9 @@ const mapDispatchToProps = dispatch => ({
         document.documentElement.scrollTop > 100 ? dispatch(changeScrollTopShow(true)) : dispatch(changeScrollTopShow(false))
     }
 })
-export default connect(state => ({ showScroll: state.getIn(['home', 'showScroll']) }), mapDispatchToProps)(Home)
+export default connect(
+    state => ({
+        showScroll: state.getIn(['home', 'showScroll'])
+    }),
+    mapDispatchToProps
+)(Home)

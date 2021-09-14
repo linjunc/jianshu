@@ -2,7 +2,7 @@
  * @Author: 林俊丞
  * @Date: 2021-09-13 13:25:53
  * @LastEditors: 林俊丞
- * @LastEditTime: 2021-09-13 22:53:15
+ * @LastEditTime: 2021-09-14 15:51:50
  * @Description: 文章列表
  */
 import React, { PureComponent, Fragment } from 'react';
@@ -19,7 +19,7 @@ class List extends PureComponent {
                 {
                     list.map(
                         item =>
-                            <Link to="/detail" key={nanoid()}>
+                            <Link to={"/detail/" + item.get('id')} key={nanoid()}>
                                 <ListItem >
                                     {/* 头图 */}
                                     <img className="pic" src={item.get('imgUrl')} alt="" />
@@ -44,4 +44,10 @@ const mapDispatchToProps = dispatch => ({
         dispatch(getMoreList(page))
     }
 })
-export default connect(state => ({ list: state.getIn(['home', 'articleList']), page: state.getIn(['home', 'articlePage']) }), mapDispatchToProps)(List);
+export default connect(
+    state => ({
+        list: state.getIn(['home', 'articleList']),
+        page: state.getIn(['home', 'articlePage'])
+    }),
+    mapDispatchToProps
+)(List);

@@ -2,7 +2,7 @@
  * @Author: 林俊丞
  * @Date: 2021-09-13 12:42:28
  * @LastEditors: 林俊丞
- * @LastEditTime: 2021-09-13 22:50:02
+ * @LastEditTime: 2021-09-14 15:57:29
  * @Description: 
  */
 import React, { PureComponent } from 'react';
@@ -36,4 +36,8 @@ class Writer extends PureComponent {
     }
 }
 
-export default connect(state => ({ writerList: state.getIn(['home', 'writerList']) }))(Writer);
+export default connect(
+    state => ({
+        writerList: state.getIn(['home', 'writerList'])
+    }), null
+)(Writer);

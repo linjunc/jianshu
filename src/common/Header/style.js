@@ -2,7 +2,7 @@
  * @Author: 林俊丞
  * @Date: 2021-09-12 14:23:21
  * @LastEditors: 林俊丞
- * @LastEditTime: 2021-09-13 22:54:33
+ * @LastEditTime: 2021-09-14 14:22:17
  * @Description:
  */
 import styled from "styled-components";
@@ -41,6 +41,7 @@ export const NavItem = styled.div`
   padding: 0 15px;
   font-size: 17px;
   color: #333;
+  cursor: pointer;
   &.left {
     float: left;
   }
@@ -101,6 +102,7 @@ export const SearchInfo = styled.div`
   position: absolute;
   left: 0;
   top: 56px;
+  z-index: 99;
   width: 240px;
   padding: 0 20px;
   background-color: #fff;
@@ -125,7 +127,7 @@ export const SearchInfoSwitch = styled.span`
     float: left;
     font-size: 12px;
     margin-right: 2px;
-    transition: all .2s ease-in;
+    transition: all 0.2s ease-in;
     transform: rotate(0deg);
     transform-origin: center center;
   }

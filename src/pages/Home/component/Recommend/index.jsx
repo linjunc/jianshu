@@ -15,4 +15,9 @@ class Recommend extends PureComponent {
     }
 }
 
-export default connect(state => ({ list: state.getIn(['home', 'recommendList']) }), null)(Recommend);
+export default connect(
+    state => ({
+        list: state.getIn(['home', 'recommendList'])
+    }),
+    null
+)(Recommend);

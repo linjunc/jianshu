@@ -2,7 +2,7 @@
  * @Author: 林俊丞
  * @Date: 2021-09-13 13:25:53
  * @LastEditors: 林俊丞
- * @LastEditTime: 2021-09-13 19:44:57
+ * @LastEditTime: 2021-09-14 12:58:56
  * @Description: 文章列表页面样式
  */
 import styled from "styled-components";
@@ -34,6 +34,8 @@ export const ListInfo = styled.div`
     line-height: 24px;
     font-size: 12px;
     color: #999;
+    padding-right: 20px;
+    box-sizing: border-box;
   }
 `;
 export const LoadMore = styled.div`

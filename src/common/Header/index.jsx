@@ -10,6 +10,7 @@ import {
     mouseLeave,
     changePage
 } from "../../redux/action/focus";
+import { logoutAction } from "../../redux/action/login"
 // import { blurFlagAction } from '../../redux/action/blur'
 // import { CSSTransition } from 'react-transition-group'
 import {
@@ -61,7 +62,7 @@ class Header extends PureComponent {
         }
     };
     render() {
-        const { focused, handleInputFocus, handleInputBlur, list } = this.props;
+        const { focused, handleInputFocus, handleInputBlur, list, login, logout } = this.props;
         return (
             <Fragment>
                 <IconfontStyle />
@@ -69,11 +70,14 @@ class Header extends PureComponent {
                     <Link to="/">
                         <Logo />
                     </Link>
-
                     <Nav>
                         <NavItem className="left">首页</NavItem>
                         <NavItem className="left">下载APP</NavItem>
-                        <NavItem className="right">登陆</NavItem>
+
+                        {
+                            login ? <NavItem className="right" onClick={logout} >退出</NavItem> : <Link to="/login"> <NavItem className="right" >登录</NavItem> </Link>
+                        }
+
                         <NavItem className="right">
                             <i className="iconfont">&#xe636;</i>
                         </NavItem>
@@ -90,9 +94,11 @@ class Header extends PureComponent {
                         </SearchWrapper>
                     </Nav>
                     <Addition>
-                        <Button className="writing">
-                            <i className="iconfont">&#xe742;</i>写文章
-                        </Button>
+                        <Link to="/write">
+                            <Button className="writing">
+                                <i className="iconfont">&#xe742;</i>写文章
+                            </Button>
+                        </Link>
                         <Button className="reg">注册</Button>
                     </Addition>
                 </HeaderWrapper>
@@ -100,13 +106,13 @@ class Header extends PureComponent {
         );
     }
 }
-// getIn(['focusBlur','focused'],)
 const mapStateToProps = (state) => ({
-    focused: state.get("header").get("focused"),
-    list: state.get("header").get("list"),
-    page: state.get('header').get('page'),
-    totalPage: state.get('header').get('totalPage'),
-    mouseIn: state.get('header').get('mouseIn'),
+    focused: state.getIn(['header', 'focused']),
+    list: state.getIn(['header', 'list']),
+    page: state.getIn(['header', 'page']),
+    totalPage: state.getIn(['header', 'totalPage']),
+    mouseIn: state.getIn(['header', 'mouseIn']),
+    login: state.getIn(['login', 'login'])
     // focused: true
 });
 const mapDispatchToProps = (dispatch) => {
@@ -114,7 +120,6 @@ const mapDispatchToProps = (dispatch) => {
         handleInputFocus(list) {
             (list.size === 0) && dispatch(getList())
             dispatch(focusFlagAction());
-            // dispatch(getList());
         },
         handleInputBlur() {
             dispatch(blurFlagAction());
@@ -126,9 +131,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch(mouseLeave())
         },
         handleChangePage(page, totalPage, spin) {
-            // console.log(page, totalPage,spin);
             let spinAngle = spin.style.transform.replace(/[^0-9]/ig, '')
-            console.log(spinAngle);
             if (spinAngle) {
                 spinAngle = parseInt(spinAngle, 10)
             } else {
@@ -137,6 +140,9 @@ const mapDispatchToProps = (dispatch) => {
 
             spin.style.transform = 'rotate(' + (spinAngle + 360) + 'deg)'
             page < totalPage ? dispatch(changePage(page + 1)) : dispatch(changePage(2))
+        },
+        logout() {
+            dispatch(logoutAction())
         }
     };
 };
